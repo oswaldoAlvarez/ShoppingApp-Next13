@@ -1,5 +1,5 @@
-import { HomeComponent } from "./Home.screen";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return <HomeComponent />;
+  redirect("/home");
 }
