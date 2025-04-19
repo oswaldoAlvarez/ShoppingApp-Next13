@@ -1,5 +1,5 @@
-import React from "react";
+import { Cart } from "./Cart.screen";
 
-export default function page() {
-  return <div>cart</div>;
+export default function CartPage() {
+  return <Cart />;
 }

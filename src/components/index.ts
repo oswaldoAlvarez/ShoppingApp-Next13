@@ -1,3 +1,4 @@
-export { Navbar } from "./navbar/Navbar.component";
-export { ActiveLink } from "./activeLink/ActiveLink.component";
-export { ProductCard } from "./productCard/ProductCard.component";
+export { Navbar } from "./Navbar.component";
+export { ActiveLink } from "./ActiveLink.component";
+export { ProductCard } from "./ProductCard.component";
+export { RowProductCart } from "./RowProductCart.component";

@@ -1,4 +1,4 @@
-import { Product } from "./Product.screen";
+import { ProductById } from "./ProductById.screen";
 
 interface IProductDetailPage {
   params: {
@@ -6,10 +6,10 @@ interface IProductDetailPage {
   };
 }
 
-export default async function ProductDetailPage({
+export default async function ProductDetail({
   params,
 }: IProductDetailPage) {
   const { id } = await Promise.resolve(params);
 
-  return <Product id={+id} />;
+  return <ProductById id={+id} />;
 }

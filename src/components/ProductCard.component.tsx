@@ -1,10 +1,10 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { Product } from "@/interfaces/hooks/products.interfaces";
+import { ProductData } from "@/interfaces/hooks/product.interfaces";
 
 interface IProductCard {
-  item: Product;
+  item: ProductData;
 }
 
 export const ProductCard = ({ item }: IProductCard) => {
