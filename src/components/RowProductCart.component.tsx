@@ -6,6 +6,7 @@ import { useCartStore } from "@/hooks";
 import { CartProduct } from "@/hooks/useCartStore";
 import { FaTrash } from "react-icons/fa";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import Link from "next/link";
 
 interface IRowProductCart {
   product: CartProduct;
@@ -15,13 +16,17 @@ export const RowProductCart = ({ product }: IRowProductCart) => {
   const { addToCart, decreaseQuantity, removeFromCart } = useCartStore();
 
   const maxReached = product.quantity >= product.stock;
+  const belowMinimum = product.quantity < product.minimumOrderQuantity;
 
   return (
     <li
       key={product.id}
       className="mb-4 border-b pb-4 flex items-center space-x-4"
     >
-      <div className="w-20 h-20 bg-gray-200 overflow-hidden rounded-2xl flex items-center justify-center">
+      <Link
+        href={`/home/product/${product.id}`}
+        className="w-20 h-20 bg-gray-200 overflow-hidden rounded-2xl flex items-center justify-center"
+      >
         <Image
           src={product.thumbnail}
           alt={product.title}
@@ -29,7 +34,7 @@ export const RowProductCart = ({ product }: IRowProductCart) => {
           height={80}
           className="object-contain bg-white"
         />
-      </div>
+      </Link>
       <div className="flex-1">
         <p className="text-lg font-semibold">{product.title}</p>
         <p className="text-sm text-gray-400">Quantity: {product.quantity}</p>
@@ -41,6 +46,11 @@ export const RowProductCart = ({ product }: IRowProductCart) => {
         </p>
         {maxReached && (
           <p className="text-xs text-red-500">Maximum stock reached</p>
+        )}
+        {belowMinimum && (
+          <p className="text-xs text-red-500">
+            You must buy at least {product.minimumOrderQuantity} units
+          </p>
         )}
       </div>
       <div className="flex space-x-2">
