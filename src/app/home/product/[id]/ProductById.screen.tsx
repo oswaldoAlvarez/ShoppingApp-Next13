@@ -7,7 +7,11 @@ import { ProductData } from "@/interfaces/hooks/product.interfaces";
 import { AiFillStar } from "react-icons/ai";
 import { ArrowButton } from "@/components";
 
-export const ProductById = ({ id }: { id: number }) => {
+interface IProductById {
+  id: number;
+}
+
+export const ProductById = ({ id }: IProductById) => {
   const { product } = useGetProductById(id);
   const { products } = useGetProducts();
   const { addToCart } = useCartStore();
