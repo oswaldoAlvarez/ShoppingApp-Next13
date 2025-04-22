@@ -15,7 +15,7 @@ export const ProductCard = ({ item }: IProductCard) => {
       key={item.id}
     >
       <div className="justify-center items-center flex flex-col">
-        <div className="w-50 h-40 flex justify-center items-center bg-gray-300 rounded-3xl mb-3">
+        <div className="md:w-50 w-40 h-40 flex justify-center items-center bg-gray-300 rounded-3xl mb-3">
           <Image
             key={item.id}
             src={item.images[0]}
@@ -25,7 +25,7 @@ export const ProductCard = ({ item }: IProductCard) => {
             priority={false}
           />
         </div>
-        <div className="flex justify-center flex-col w-50">
+        <div className="flex justify-center flex-col md:w-50 w-40">
           <p className="">{item.title}</p>
           <p className="mb-2 text-xs">Category: {item.category}</p>
           <p className="font-bold text-xl">${item.price}</p>
