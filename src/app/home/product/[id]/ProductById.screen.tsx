@@ -4,11 +4,10 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { useCartStore, useGetProductById, useGetProducts } from "@/hooks";
 import { ProductData } from "@/interfaces/hooks/product.interfaces";
-import { useRouter } from "next/navigation";
-import { AiFillStar, AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
+import { ArrowButton } from "@/components";
 
 export const ProductById = ({ id }: { id: number }) => {
-  const router = useRouter();
   const { product } = useGetProductById(id);
   const { products } = useGetProducts();
   const { addToCart } = useCartStore();
@@ -26,24 +25,13 @@ export const ProductById = ({ id }: { id: number }) => {
     setTimeout(() => setAdded(false), 2000);
   };
 
-  const goToProduct = (newId: number) => {
-    router.push(`/home/product/${newId}`);
-  };
-
   return (
     <div className="flex items-center justify-center h-screen">
       {!product ? (
         <p className="text-white font-bold text-4xl">Loading products...</p>
       ) : (
         <div className="bg-gray-700 rounded-4xl mt-150 md:mt-0 mx-10 md:w-300 md:h-170 justify-between items-center flex flex-col md:flex-row">
-          {id > 1 && (
-            <button
-              onClick={() => goToProduct(id - 1)}
-              className="absolute left-0 text-white text-3xl p-4 hover:text-blue-300 top-[50%]"
-            >
-              <AiOutlineLeft />
-            </button>
-          )}
+          {id > 1 && <ArrowButton id={id} type="left" />}
           <Image
             key={product.id}
             src={product.images[0]}
@@ -79,14 +67,7 @@ export const ProductById = ({ id }: { id: number }) => {
               {added ? "✔️ Added" : "Add to cart"}
             </button>
           </div>
-          {id < totalProducts && (
-            <button
-              onClick={() => goToProduct(id + 1)}
-              className="absolute right-0 text-white text-3xl p-4 hover:text-blue-300 top-[50%]"
-            >
-              <AiOutlineRight />
-            </button>
-          )}
+          {id < totalProducts && <ArrowButton id={id} type="right" />}
         </div>
       )}
     </div>
