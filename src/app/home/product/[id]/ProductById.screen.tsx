@@ -35,7 +35,7 @@ export const ProductById = ({ id }: { id: number }) => {
       {!product ? (
         <p className="text-white font-bold text-4xl">Loading products...</p>
       ) : (
-        <div className="bg-gray-700 rounded-4xl mt-[100%] md:mt-0 mx-10 md:w-300 md:h-170 justify-between items-center flex flex-col md:flex-row">
+        <div className="bg-gray-700 rounded-4xl mt-150 md:mt-0 mx-10 md:w-300 md:h-170 justify-between items-center flex flex-col md:flex-row">
           {id > 1 && (
             <button
               onClick={() => goToProduct(id - 1)}
