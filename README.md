@@ -1,10 +1,16 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+[Project Deployed in Vercel](https://js-challenge-oswaldo-alvarez.vercel.app/home)
+
 ## Getting Started
 
 First, run the development server:
 
 ```bash
+--dev--
+npm i
+npm run dev
+--prod--
 npm run dev
 # or
 yarn dev
